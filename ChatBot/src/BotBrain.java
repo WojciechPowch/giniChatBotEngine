@@ -21,6 +21,8 @@ public class BotBrain {
         return list;
     }
 
+
+
     //metoda która porównuje zapytanie do danych zapisnych w pamięci
     private int getMark(String baseCase, String searchedCase)
     {
@@ -100,6 +102,14 @@ public class BotBrain {
         return result;
     }
 
+    private String answer(String answer, String question, int percentage){
+        if(percentage > 65){
+            return answer;
+        }else{
+            return null;
+        }
+    }
+
     //metoda w której jest wybierana odpowiedź
     private String chooseAnswer(String question)
     {
@@ -152,7 +162,11 @@ public class BotBrain {
 
 
         //return ma sie odwoływac do metody decision która bezpośrednio na podstawie wyników analizy będzie zwracać string z decyzją
-        return null;
+        return answer(questionAnswerMap.get("a:"+String.valueOf(keyInHash)),question, percentage);
+    }
+
+    public String getAnswer(String question){
+        return chooseAnswer(question);
     }
 
 }
