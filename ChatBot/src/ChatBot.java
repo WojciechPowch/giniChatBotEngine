@@ -151,10 +151,13 @@ public class ChatBot {
                 list.add(scan.nextLine());
             }
 
+            String answer = new BotBrain(pathName).getAnswer(question);
+
             if(list.contains(question))
                 return list.get(list.indexOf(question)+1);
-            else
-            {
+            else if (!list.contains(question) && answer != null){
+                return answer;
+            }else {
                 addQuestion(question,pathName);
                 return "Odpowiedź dodano";
             }

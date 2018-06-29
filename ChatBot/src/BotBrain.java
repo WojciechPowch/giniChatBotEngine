@@ -73,8 +73,22 @@ public class BotBrain {
                 }
 
                 for(int c = 0; c < searchedCaseList.get(i).length(); c++){
-                    if(searchedCaseList.get(i).charAt(c)==baseCaseList.get(j).charAt(c)){
-                        percentOfWord++;
+                    try {
+                        if (searchedCaseList.get(i).charAt(c) == baseCaseList.get(j).charAt(c)) {
+                            percentOfWord++;
+                        }
+                    }catch(Exception e){
+                        /**
+                         * Na rzecz debugowania, ta metoda do poprawy
+                         */
+                        /**
+                        *System.out.println(searchedCaseList.get(i));
+                         System.out.println("Stan i: "+i);
+                         System.out.println(baseCaseList.get(j));
+                         System.out.println("Stan j: "+j);
+                         e.getStackTrace();
+                        */
+                        continue;
                     }
                 }
 
