@@ -161,8 +161,14 @@ public class BotBrain {
         {
             hashWithMarks.put(i, getMark(questionAnswerMap.get("q:"+String.valueOf(i)),question));
         }
+        int max;
+        try {
+            max = hashWithMarks.get(1);
 
-        int max = hashWithMarks.get(1);
+        }catch(Exception e){
+            return null;
+        }
+
         int keyInHash = 0;
         int percentage = 0;
 
@@ -176,7 +182,11 @@ public class BotBrain {
 
 
         //return ma sie odwoływac do metody decision która bezpośrednio na podstawie wyników analizy będzie zwracać string z decyzją
-        return answer(questionAnswerMap.get("a:"+String.valueOf(keyInHash)),question, percentage);
+        try {
+            return answer(questionAnswerMap.get("a:" + String.valueOf(keyInHash)), question, percentage);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public String getAnswer(String question){
