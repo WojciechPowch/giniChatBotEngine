@@ -66,7 +66,7 @@ public class BotBrain {
                     // tu skończyłem wczoraj
                 }else{
                     char prototype = '~';
-                    String localVar = searchedCaseList.get(i);
+                    String localVar = baseCaseList.get(i);
                     for(int p = 0; p < Math.abs(differentStringLength); p++){
                         localVar += String.valueOf(prototype);
                     }
@@ -171,6 +171,9 @@ public class BotBrain {
 
         int keyInHash = 0;
         int percentage = 0;
+
+        percentage = hashWithMarks.get(1);
+        keyInHash = 1;
 
         for(int i = 1; i <= hashWithMarks.size(); i++){
             if(max < hashWithMarks.get(i))
